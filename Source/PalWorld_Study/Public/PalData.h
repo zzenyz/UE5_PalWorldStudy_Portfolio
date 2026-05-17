@@ -1,12 +1,9 @@
-﻿// PalData.h
-
-#pragma once
+﻿#pragma once
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "PalData.generated.h"
 
-// APal과 ACharacter 클래스가 존재한다고 컴파일러에게 알려줍니다.
 class APal;
 class ACharacter;
 
@@ -14,7 +11,6 @@ class ACharacter;
 UENUM(BlueprintType)
 enum class EPalTraitType : uint8
 {
-	// 
 	Brave           UMETA(DisplayName = "Brave"),
 	Ferocious       UMETA(DisplayName = "Ferocious"),
 	HardSkin        UMETA(DisplayName = "Hard Skin"),
@@ -26,7 +22,6 @@ enum class EPalTraitType : uint8
 	Legendary       UMETA(DisplayName = "Legendary"),
 	Vampire         UMETA(DisplayName = "Vampire"),
 
-	// 
 	Swift           UMETA(DisplayName = "Swift"),
 	Runner          UMETA(DisplayName = "Runner"),
 	Nimble          UMETA(DisplayName = "Nimble"),
@@ -34,7 +29,6 @@ enum class EPalTraitType : uint8
 	AbundantEnergy    UMETA(DisplayName = "Abundant Energy"),
 	PerpetualMotion   UMETA(DisplayName = "Perpetual Motion"),
 
-	// 
 	Serious         UMETA(DisplayName = "Serious"),
 	Artisan         UMETA(DisplayName = "Artisan"),
 	MasterTechnician  UMETA(DisplayName = "Master Technician"),
@@ -51,7 +45,6 @@ enum class EPalTraitType : uint8
 	Nocturnal       UMETA(DisplayName = "Nocturnal"),
 	Rare            UMETA(DisplayName = "Rare"),
 
-	// 
 	Slacker         UMETA(DisplayName = "Slacker"),
 	WeakGrip        UMETA(DisplayName = "Weak Grip"),
 	BrittleBones    UMETA(DisplayName = "Brittle Bones"),
@@ -69,7 +62,6 @@ enum class EPalTraitType : uint8
 	Unstable        UMETA(DisplayName = "Unstable"),
 	Destructive     UMETA(DisplayName = "Destructive"),
 
-	// 
 	AssaultCommander    UMETA(DisplayName = "Assault Commander"),
 	BulwarkStrategist   UMETA(DisplayName = "Bulwark Strategist")
 };
@@ -82,7 +74,6 @@ struct FPalTrait
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Name;
 
-	// ---  ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float HPScale;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float AttackScale;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float DefenseScale;
@@ -92,7 +83,6 @@ struct FPalTrait
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float HungerDepletionScale;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float SanityDepletionScale;
 
-	// ---   ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float SkillCooldownReduction;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PlayerAttackBuff;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PlayerDefenseBuff;
@@ -100,12 +90,10 @@ struct FPalTrait
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PlayerMiningEfficiency;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PlayerWorkSpeedBuff;
 
-	// ---   ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bHasLifesteal;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bWorksAtNight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bIncreasesEggProduction;
 
-	// ---  ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) float TraitScore;
 
 	FPalTrait()
@@ -139,9 +127,8 @@ struct FPalData : public FTableRowBase
 	GENERATED_BODY()
 
 public:
-	// 어떤 종류의 팰인지 식별 (스폰할 때 사용)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal Data")
-	TSubclassOf<APal> PalClass; // 전방 선언된 APal 사용
+	TSubclassOf<APal> PalClass; 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal Data")
 	TSoftObjectPtr<UTexture2D> PalIcon;
@@ -159,8 +146,7 @@ public:
 	float CurrentXP;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal Data")
-	TArray<EPalTraitType> Traits; // EPalTraitType이 이제 이 파일에 정의됨
-
+	TArray<EPalTraitType> Traits; 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal Data")
 	FLinearColor BodyColor;
 
@@ -187,7 +173,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal Data")
 	float Defense_IV;
 
-	// 번식으로 태어났는지 여부
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal Data")
 	bool bIsBred;
 
@@ -196,7 +182,5 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	ACharacter* OwnerCharacter = nullptr;
-
-	
 };
 

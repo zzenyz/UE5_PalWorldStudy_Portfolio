@@ -36,11 +36,9 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* Text_Timer;
 
-	// [핵심] 스포너처럼 플레이어 인벤토리를 동적 할당할 그리드
 	UPROPERTY(meta = (BindWidget))
 	UUniformGridPanel* Grid_PlayerItems;
 
-	// [핵심] 브리딩처럼 부화기 슬롯을 동적 할당할 박스
 	UPROPERTY(meta = (BindWidget))
 	UVerticalBox* Box_IncubatorSlot;
 
@@ -53,7 +51,6 @@ protected:
 	UFUNCTION()
 	void OnActionClicked();
 
-	// 생성할 아이템 슬롯 클래스 (WBP_ItemSlot)
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<UUserWidget> ItemSlotClass;
 
@@ -61,7 +58,6 @@ protected:
 	int32 ColumnsPerRow = 5;
 
 public:
-	// 브리딩의 SetTargetFarm과 완벽히 동일한 역할
 	UFUNCTION(BlueprintCallable)
 	void SetTargetIncubator(class AEggIncubator* InIncubator);
 };

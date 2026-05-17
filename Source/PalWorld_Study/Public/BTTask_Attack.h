@@ -19,7 +19,6 @@ protected:
 private:
 	bool bIsAttacking = false;
 
-	// 현재 재생 중인 팰의 몽타주를 잠시 저장해둘 변수
 	UPROPERTY()
 	class UAnimMontage* CurrentPlayingMontage;
 };

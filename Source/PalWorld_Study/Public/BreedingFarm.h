@@ -20,7 +20,6 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-
 	UFUNCTION()
 	void UpdateParentSpawns();
 
@@ -48,9 +47,9 @@ public:
 	bool bIsEggReady = false;
 	UPROPERTY(BlueprintReadOnly)
 	class AEggActor* CurrentSpawnedEgg;
+
 	UPROPERTY(EditAnywhere, Category = "Settings")
 	TSubclassOf<class AEggActor> EggClass;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Settings")
 	UItemDataAsset* EggItemAsset;
 
@@ -58,7 +57,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void StartBreeding();
-
 	void OnEggProduced();
 
 	UFUNCTION(BlueprintCallable)
@@ -68,7 +66,6 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	APal* SpawnedParentA;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	APal* SpawnedParentB;
 };

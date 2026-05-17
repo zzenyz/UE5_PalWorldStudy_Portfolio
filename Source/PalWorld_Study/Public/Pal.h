@@ -1,12 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InventoryComponent.h"
 #include "AIController.h"
-#include "PalData.h" // [유지] PalData.h를 포함하여 FPalData와 Trait 정의를 가져옵니다.
+#include "PalData.h"
 #include "Pal.generated.h"
 
 UCLASS()
@@ -20,13 +18,8 @@ public:
 	virtual void BeginPlay() override;
 
 public:
-
-	// 팰의 모든 핵심 데이터는 이 변수 하나로 통합하여 관리합니다.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pal|Data")
 	FPalData PalData;
-
-
-	// --- 아래는 APal 액터 고유의 변수들입니다. ---
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	uint8 AIState;
@@ -66,7 +59,6 @@ public:
 
 	class ABuilding* OwnerBase;
 
-	// ====== 함수 선언부 ======
 	UFUNCTION(BlueprintCallable, Category = "Pal")
 	void RefreshPalState();
 
@@ -112,11 +104,9 @@ protected:
 	FName PalSpeciesID;
 
 public:
-	// [추가] 주인이 전투에 돌입했을 때 실행될 함수
 	UFUNCTION()
 	void HandleMasterCombat(AActor* TargetEnemy);
 
 	UFUNCTION(BlueprintCallable, Category = "Pal|Combat")
 	void SetMaster(AActor* NewMaster);
 };
-

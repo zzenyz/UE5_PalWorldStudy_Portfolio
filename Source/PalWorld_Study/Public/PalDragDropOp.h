@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/DragDropOperation.h"
-#include "PalData.h" // FPalData가 정의된 헤더
+#include "PalData.h" 
 #include "PalDragDropOp.generated.h"
 
 UCLASS()
@@ -11,14 +11,14 @@ class PALWORLD_STUDY_API UPalDragDropOp : public UDragDropOperation
 	GENERATED_BODY()
 
 public:
-	// 드래그 중인 팰의 실제 데이터
-	UPROPERTY(BlueprintReadWrite, Category = "Breeding")
+	// 드래그 중인 데이터 원본
+	UPROPERTY(BlueprintReadWrite, Category = "DragDrop")
 	FPalData StoredPalData;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DragDrop")
 	UPalStorageComponent* SourceStorageComponent;
 
-	// 원래 인벤토리 슬롯 인덱스 (필요 시)
-	UPROPERTY(BlueprintReadWrite, Category = "Breeding")
+	// 이동 전 슬롯 위치 기록
+	UPROPERTY(BlueprintReadWrite, Category = "DragDrop")
 	int32 SourceIndex;
 };
