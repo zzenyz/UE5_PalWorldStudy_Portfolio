@@ -14,7 +14,6 @@ class PALWORLD_STUDY_API UPalMainMenuWidget : public UUserWidget
 protected:
 	virtual void NativeConstruct() override;
 
-	// 블루프린트 UI에 있는 버튼들과 정확히 이름이 같아야 연결됩니다!
 	UPROPERTY(meta = (BindWidget))
 	UButton* Btn_NewGame;
 
@@ -24,7 +23,6 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	UButton* Btn_Exit;
 
-	// 버튼 클릭 시 실행될 함수들
 	UFUNCTION()
 	void OnNewGameClicked();
 

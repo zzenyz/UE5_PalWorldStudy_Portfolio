@@ -4,7 +4,6 @@
 #include "GameFramework/GameModeBase.h"
 #include "PalMainMenuGameMode.generated.h"
 
-// MainWidget 클래스를 쓰겠다고 미리 알려줍니다.
 class UMainWidget;
 
 UCLASS()

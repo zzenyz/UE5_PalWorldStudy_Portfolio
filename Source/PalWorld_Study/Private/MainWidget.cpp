@@ -14,30 +14,22 @@ void UMainWidget::NativeConstruct()
 
 void UMainWidget::OnNewGameClicked()
 {
-    // 1. 위젯 제거
-    RemoveFromParent();
+	RemoveFromParent();
 
-    // 2. 마우스 숨기고 게임 모드로 복귀
-    APlayerController* PC = GetOwningPlayer();
-    if (PC)
-    {
-        PC->bShowMouseCursor = false;
-        PC->SetInputMode(FInputModeGameOnly());
-    }
-    // 새 게임이므로 추가 로드 없이 이대로 플레이 시작!
+	APlayerController* PC = GetOwningPlayer();
+	if (PC)
+	{
+		PC->bShowMouseCursor = false;
+		PC->SetInputMode(FInputModeGameOnly());
+	}
 }
 
 void UMainWidget::OnLoadGameClicked()
 {
-	UE_LOG(LogTemp, Warning, TEXT("CHECK 1: Load Button Clicked!"));
-
 	if (UPalStudyGameInstance* GI = Cast<UPalStudyGameInstance>(GetGameInstance()))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("CHECK 2: GameInstance Found. Calling LoadPlayerData..."));
-
 		GI->LoadPlayerData();
 
-		// 위젯 닫고 컨트롤러 돌려놓기
 		RemoveFromParent();
 		APlayerController* PC = GetOwningPlayer();
 		if (PC)
@@ -45,9 +37,5 @@ void UMainWidget::OnLoadGameClicked()
 			PC->bShowMouseCursor = false;
 			PC->SetInputMode(FInputModeGameOnly());
 		}
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("CHECK 2 ERROR: GameInstance is NOT PalStudyGameInstance!"));
 	}
 }

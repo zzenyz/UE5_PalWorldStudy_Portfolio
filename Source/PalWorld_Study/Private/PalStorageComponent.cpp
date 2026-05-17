@@ -11,7 +11,6 @@ void UPalStorageComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// 배열 크기 초기화
 	StoredPalsData.SetNum(StorageCapacity);
 	SpawnedPals.SetNum(StorageCapacity);
 }
@@ -45,7 +44,6 @@ bool UPalStorageComponent::AddPal(APal* PalToAdd, UPalStorageComponent* Overflow
 
 	PalToAdd->Destroy();
 
-	// ✅ [Add] 갱신 알림
 	if (OnPalStorageUpdated.IsBound())
 	{
 		OnPalStorageUpdated.Broadcast();
@@ -64,7 +62,6 @@ bool UPalStorageComponent::RemovePalByIndex(int32 Index)
 	UnsummonPalByIndex(Index);
 	StoredPalsData[Index] = FPalData();
 
-	// ✅ [Remove] 데이터가 지워졌으니 갱신 알림! (이게 빠져 있었음)
 	if (OnPalStorageUpdated.IsBound())
 	{
 		OnPalStorageUpdated.Broadcast();
@@ -75,7 +72,6 @@ bool UPalStorageComponent::RemovePalByIndex(int32 Index)
 
 bool UPalStorageComponent::SwapPals(int32 SourceIndex, UPalStorageComponent* DestinationStorage, int32 DestinationIndex)
 {
-	// 1. 유효성 검사
 	if (!DestinationStorage ||
 		!this->StoredPalsData.IsValidIndex(SourceIndex) ||
 		!this->SpawnedPals.IsValidIndex(SourceIndex) ||
@@ -85,16 +81,13 @@ bool UPalStorageComponent::SwapPals(int32 SourceIndex, UPalStorageComponent* Des
 		return false;
 	}
 
-	// 2. 소환 해제
 	this->UnsummonPalByIndex(SourceIndex);
 	DestinationStorage->UnsummonPalByIndex(DestinationIndex);
 
-	// 3. 교환
 	Swap(this->StoredPalsData[SourceIndex], DestinationStorage->StoredPalsData[DestinationIndex]);
 	Swap(this->SpawnedPals[SourceIndex], DestinationStorage->SpawnedPals[DestinationIndex]);
 
-	// 4. 스폰 로직 (Active 상태일 경우)
-	// --- Destination 쪽 스폰 ---
+	// Destination 팰 스폰 (Active 상태일 경우)
 	AActor* DestOwner = DestinationStorage->GetOwner();
 	if (DestOwner && DestinationStorage->bIsActiveInventory && DestinationStorage->StoredPalsData[DestinationIndex].PalClass != nullptr)
 	{
@@ -109,7 +102,7 @@ bool UPalStorageComponent::SwapPals(int32 SourceIndex, UPalStorageComponent* Des
 		if (SpawnedPal) SpawnedPal->AIState = 2;
 	}
 
-	// --- Source(내꺼) 쪽 스폰 ---
+	// Source 팰 스폰 (Active 상태일 경우)
 	AActor* SourceOwner = this->GetOwner();
 	if (SourceOwner && this->bIsActiveInventory && this->StoredPalsData[SourceIndex].PalClass != nullptr)
 	{
@@ -124,7 +117,7 @@ bool UPalStorageComponent::SwapPals(int32 SourceIndex, UPalStorageComponent* Des
 		if (SpawnedPal) SpawnedPal->AIState = 2;
 	}
 
-	
+
 	if (this->OnPalStorageUpdated.IsBound())
 	{
 		this->OnPalStorageUpdated.Broadcast();
@@ -214,10 +207,8 @@ void UPalStorageComponent::PostEditChangeProperty(FPropertyChangedEvent& Propert
 
 	if (PropertyChangedEvent.GetMemberPropertyName() == GET_MEMBER_NAME_CHECKED(UPalStorageComponent, StoredPalsData))
 	{
-		if (!PalDataTable)
-		{
-			return;
-		}
+		if (!PalDataTable) return;
+
 		for (FPalData& PalData : StoredPalsData)
 		{
 			if (PalData.PalClass != nullptr && (PalData.PalName.IsEmpty() || PalData.PalName == "None"))
