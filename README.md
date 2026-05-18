@@ -105,6 +105,7 @@ if (PlayerPawn)
         PlayerPalStorageComp->OnPalStorageUpdated.AddDynamic(this, &UInventoryWidget::RefreshPlayerPals);
     }
 }
+```
 
 </details>
 
