@@ -8,13 +8,13 @@
 </div>
 
 ## 목차
-*1️⃣ [프로젝트 개요](#1️⃣-프로젝트-개요-overview)
-*2️⃣ [시연 영상 및 스크린샷](#2️⃣-시연-영상-및-스크린샷-demo--screenshots)
-*3️⃣ [주요 기능 및 시스템 흐름도](#3️⃣-주요-기능-및-시스템-흐름도-features--flowchart)
-*4️⃣ [사용 기술 및 개발 환경](#4️⃣-사용-기술-및-개발-환경-tech-stack)
-*5️⃣ [핵심 트러블슈팅](#5️⃣-핵심-트러블슈팅-troubleshooting)
-*6️⃣ [상세 문서 (노션)](#6️⃣-상세-문서-및-링크-notion--docs)
-*7️⃣ [담당 역할](#7️⃣-담당-역할-roles)
+1️⃣ [프로젝트 개요](#1️⃣-프로젝트-개요-overview) <br>
+2️⃣ [시연 영상 및 스크린샷](#2️⃣-시연-영상-및-스크린샷-demo--screenshots) <br>
+3️⃣ [주요 기능 및 시스템 흐름도](#3️⃣-주요-기능-및-시스템-흐름도-features--flowchart) <br>
+4️⃣ [사용 기술 및 개발 환경](#4️⃣-사용-기술-및-개발-환경-tech-stack) <br>
+5️⃣ [핵심 트러블슈팅](#5️⃣-핵심-트러블슈팅-troubleshooting) <br>
+6️⃣ [상세 문서 (노션)](#6️⃣-상세-문서-및-링크-notion--docs) <br>
+7️⃣ [담당 역할](#7️⃣-담당-역할-roles)
 
 ---
 
@@ -79,7 +79,6 @@
 
 <details>
 <summary>🛠️ 핵심 해결 코드 보기 (클릭)</summary>
-<div markdown="1">
 
 ```cpp
 // UInventoryWidget::NativeConstruct 내부 로직
