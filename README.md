@@ -31,7 +31,7 @@
 ## 2️⃣ 시연 영상 및 스크린샷 (Demo & Screenshots)
 
 ### 🎬 게임 플레이 시연
-[![PalStudy 시연 영상](https://img.youtube.com/vi/K0criVOJP2o/0.jpg)](https://youtu.be/K0criVOJP2o)
+[![PalStudy 시연 영상](https://img.youtube.com/vi/K0criVOJP2o/0.jpg)](https://youtu.be/WXz9ejn-pqk)
 
 ## 3️⃣ 주요 기능 및 시스템 흐름도 (Features & Flowchart)
 
