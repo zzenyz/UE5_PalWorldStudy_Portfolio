@@ -108,8 +108,12 @@ if (PlayerPawn)
 
 </details>
 
+---
+
 ## 6️⃣ 상세 문서 및 링크 (Notion & Docs)
 📄 **[프로젝트 상세 노션 페이지 바로가기](https://www.notion.so/CHOI-GAYEON-3480e502a9f680feacb5dfebf7fa8eb9)**
+
+---
 
 ## 7️⃣ 담당 역할 (Roles)
 * **[최가연] (클라이언트 프로그래머 - 핵심 콘텐츠 구현)**
