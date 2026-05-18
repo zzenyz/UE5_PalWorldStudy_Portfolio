@@ -111,11 +111,13 @@ if (PlayerPawn)
 ---
 
 ## 6️⃣ 상세 문서 및 링크 (Notion & Docs)
+
 📄 **[프로젝트 상세 노션 페이지 바로가기](https://www.notion.so/CHOI-GAYEON-3480e502a9f680feacb5dfebf7fa8eb9)**
 
 ---
 
 ## 7️⃣ 담당 역할 (Roles)
+
 * **[최가연] (클라이언트 프로그래머 - 핵심 콘텐츠 구현)**
   * **AI 및 행동 트리(Behavior Tree) 기반 팰 자율 행동 로직 구현**
     * 상태(야생/포획) 및 목적(전투/노동)에 따라 유기적으로 변화하는 AI 시스템 구축
